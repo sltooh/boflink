@@ -1,0 +1,4 @@
+[alias]
+xtask = "run -p xtask --"
+xtask-dist = "run -p xtask --features dist --"
+dist = "xtask-dist dist"

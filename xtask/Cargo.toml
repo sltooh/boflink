@@ -1,0 +1,45 @@
+[package]
+name = "xtask"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+path = "src/main.rs"
+name = "xtask-util"
+
+[dependencies]
+flate2 = { version = "1.1.1", optional = true }
+hex = { version = "0.4.3", optional = true }
+serde = { version = "1.0.219", features = ["derive"], optional = true }
+serde_json = { version = "1.0.140", optional = true }
+sha2 = { version = "0.10.9", optional = true }
+tar = { version = "0.4.44", optional = true }
+
+[dependencies.zip]
+version = "4.0.0"
+optional = true
+default-features = false
+features = ["deflate", "chrono"]
+
+[dependencies.chrono]
+version = "0.4.41"
+optional = true
+default-features = false
+features = ["std"]
+
+[features]
+default = []
+metadata = [
+  "dep:serde",
+  "dep:serde_json"
+]
+dist = [
+  "metadata",
+  "dep:flate2",
+  "dep:chrono",
+  "dep:hex",
+  "dep:sha2",
+  "dep:tar",
+  "dep:zip",
+]

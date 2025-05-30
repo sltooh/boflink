@@ -1,0 +1,6 @@
+LIBRARY MyApi
+EXPORTS
+  MyApiVersion
+  MyApiPrintf
+  MyApiAlloc
+  MyApiFree
